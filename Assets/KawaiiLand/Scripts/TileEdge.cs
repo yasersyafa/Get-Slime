@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TileEdge : MonoBehaviour
 {
-   public Mesh[] tileEdgeMeshs; 
-  public void ReplaceMesh()
+    public Mesh[] tileEdgeMeshs; 
+    public void ReplaceMesh()
     {
         if (tileEdgeMeshs.Length < 2) return;
         Mesh currentMesh = tileEdgeMeshs[Random.Range(0, tileEdgeMeshs.Length)];
@@ -14,7 +14,7 @@ public class TileEdge : MonoBehaviour
     }
     public void RandomAllTile()
     {
-        TileEdge[] allTileEdge = FindObjectsOfType<TileEdge>();
+        TileEdge[] allTileEdge = FindObjectsByType<TileEdge>(sortMode: FindObjectsSortMode.None);
         foreach (TileEdge tile in allTileEdge)
             tile.ReplaceMesh();
         Debug.Log("Replaced all tile");
